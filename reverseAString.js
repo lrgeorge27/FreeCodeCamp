@@ -13,3 +13,11 @@ function reverseString(str) {
 
 console.log(reverseString("Lauren George"));
 
+//simplified version of above code:
+function reverseString(str) {
+   return str.split("").reverse().join("");
+}
+
+reverseString("hello");
+
+
