@@ -22,22 +22,30 @@
 
 function translatePigLatin(str) {
     var newStr = str.split("");
-    // var dropFirst = newStr.slice(0, 1);
-    if (newStr[0] == "a" || newStr[0] == "e") {
+    var vowels = ["a", "e", "i", "o", "u"];
+    var consonants = [];
+    // if (newStr[0] == "a" || newStr[0] == "e" || newStr[0] == "i" || newStr[0] == "o" || newStr[0] == "u") {
+    if (vowels.indexOf(newStr[0]) !== -1) {
         newStr.push("way");
-        console.log(newStr);
-    }
-    else if (newStr[0] == "i" || newStr[0] == "o" || newStr[0] == "u") {
-        newStr.push("way");
-        console.log(newStr);
+        newStr = newStr.join("");
+        // console.log(newStr);
     }
     else {
-        newStr.push(newStr[0] + "ay").substr(0, newStr.length);
-        // return dropFirst;
-
+        for (var i = 0; i < newStr.length;) {
+            if (vowels.indexOf(newStr[i]) !== -1) {
+                consonants = consonants.join("");
+                return str.substr(i) + consonants + "ay";
+            }
+            else {
+                consonants.push(newStr[i]);
+                i++;
+                // newStr = (str.substr(1) + str[0] + "ay");
+            }
+        }
     }
-    return newStr.join("");
+    return newStr;
 }
 
-console.log(translatePigLatin("algorithm"));
+console.log(translatePigLatin("eight"));
 console.log(translatePigLatin("consonant"));
+console.log(translatePigLatin("glove"));
