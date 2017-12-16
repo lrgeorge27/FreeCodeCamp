@@ -1,0 +1,19 @@
+<script>
+    // function doSomething() {
+    //     arguments[0] = "poop";
+    //     for (var i = 0; i < arguments.length; i++) {
+    //         alert(arguments[i]);
+    //         // alert(arguments.callee);
+    //     }
+    // }
+    // doSomething("Hello", "world", "goodbye", 100, true);
+
+    function sum() {
+        var result = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            result += arguments[i];
+        }
+        return result;
+    }
+    alert(sum(10, 5, 2, 3, 10));
+</script>
