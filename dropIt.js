@@ -16,36 +16,23 @@
 //5. Iterate through the array checking each index
 //6. If no itegers meet the conidition return []
 function dropElements(arr, func) {
-    var newArr = arr.filter(func);
-    var arrShift = arr.shift(func);
-
-    for (var i = 0; i < arr.length;) {
-        if (arr[0] !== (func)) {
-            arr.shift(func);
-            console.log(arr);
-            i++
-        }
-        else if (arr[0] === (func)) {
-            console.log("return");
-            return arr;
+    var length = arr.length; //arr.length needs to be in a var to use the original arr length, as length is affected by arr.shift
+    for (var i = 0; i < length; i++) {
+        if (func(arr[0])) { //if arr[0] meets the function condition break out of the loop and return the current arr
+            break; //breaks the loop and moves to return
         }
         else {
-            return [];
+            arr.shift(); //arr.shift() drops the first index element and shifts all elements forward
         }
     }
+    return arr;
+
 }
-// if (a[0] === n) {
-//     // arr.slice(0);
-//     newArr.push(arr.slice(0));
 
-// }
-// else {
-//     arr.slice(0);
-// }
-
-//     return arrShift;
-// }
+// var newArr = arr.shift(func);
+//   return arr;
 
 console.log(dropElements([1, 2, 3, 9, 2], function(n) { return n > 2; }));
 console.log(dropElements([0, 1, 0, 1], function(n) { return n === 1; }));
 console.log(dropElements([1, 2, 3], function(n) { return n < 3; }));
+console.log(dropElements([1, 2, 3, 4], function(n) { return n > 5; }));
