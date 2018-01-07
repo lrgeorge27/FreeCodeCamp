@@ -47,7 +47,7 @@ function isPrime(num) {
 }
 
 function sumPrimes(num) {
-    var total = 0;
+    var total = 0; //created to track a running totals
     for (var n = 2; n <= num; n++) {
         // console.log("interation", n);
         if (isPrime(n)) {

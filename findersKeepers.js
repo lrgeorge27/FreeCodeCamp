@@ -7,15 +7,15 @@
 //3. If the functions condition has been met return first occurence in the array.
 //4. Else return undefined. 
 function findElement(arr, func) {
-    var a = arr.filter(func);
-    var num = 0;    //?
-    return a[num];
+    // var a = arr.filter(func);
+    // var num = 0;    //?
+    // return a[num];
+    return arr.filter(func)[0];
 }
 
-    //or 
-    // function findElement(arr, func) {
-    // var num = 0;    
-    // return arr.filter(func)[0];
-    // }
+//or 
+// function findElement(arr, func) {
+// var num = 0;    
+// }
 
 console.log(findElement([1, 2, 3, 4], function(num) { return num % 2 === 0; }));
