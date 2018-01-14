@@ -19,9 +19,14 @@
 // 4 return string
 
 function spinalCase(str) {
-    var newStr = str.replace(/\s/g, "-").toLowerCase();
+    var newStr = str.replace(/[^A-Za-z]/g, "-").toLowerCase();
+    // (/(a-z)(A-Z)/, /$1 $2/)
     return newStr;
 }
+
+//regExp: 
+// (The decimal point) matches any single character except the newline character.
+// For example, /.n/ matches 'an' and 'on' in "nay, an apple is on the tree", but not 'nay'.
 
 console.log(spinalCase('This Is Spinal Tap'));
 console.log(spinalCase("thisIsSpinalTap")); // should return "this-is-spinal-tap".
