@@ -19,10 +19,24 @@
 // 4 return string
 
 function spinalCase(str) {
-    var newStr = str.replace(/[^A-Za-z]/g, "-").toLowerCase();
-    // (/(a-z)(A-Z)/, /$1 $2/)
-    return newStr;
+    var str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+        str = str.replace(/[^A-Za-z]/g, "-").toLowerCase();
+
+    // console.log(str);
+        return str;
 }
+
+//     for (var i = 0; i < arr.length; i++){
+//         if(i ==/([a-z])([A-Z])/g){
+//         arr.splice(i, 0, "-");
+//             // console.log(i, i++);
+//             // arr = arr.splice(i, 0, "-");
+//             // // i++;
+//             console.log(arr);
+//             // break;
+//         }
+//     }
+// }
 
 //regExp: 
 // (The decimal point) matches any single character except the newline character.
